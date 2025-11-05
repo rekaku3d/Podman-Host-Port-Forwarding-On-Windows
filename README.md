@@ -32,7 +32,7 @@ netsh interface portproxy delete v4tov4 listenport=8000 listenaddress=0.0.0.0
 
 🙂‍↔️ bat script
 
-'''cmd
+```cmd
 @echo off
 REM Replace with your Podman VM IP
 set VM_IP=192.168.127.2
@@ -53,7 +53,7 @@ echo Done. Ports 8080, 3000, and 9000 are now forwarded to %VM_IP%.
 pause
 
 
-'''
+```
 
 
 
