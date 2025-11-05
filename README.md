@@ -30,6 +30,31 @@ http://192.168.0.163:8000
 To remove the forwarding rule later:
 netsh interface portproxy delete v4tov4 listenport=8000 listenaddress=0.0.0.0
 
+🙂‍↔️ bat script
+
+'''cmd
+@echo off
+REM Replace with your Podman VM IP
+set VM_IP=192.168.127.2
+
+echo Binding ports to Podman VM at %VM_IP%...
+
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=%VM_IP%
+netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=%VM_IP%
+netsh interface portproxy add v4tov4 listenport=9000 listenaddress=0.0.0.0 connectport=9000 connectaddress=%VM_IP%
+
+echo Adding firewall rules...
+
+netsh advfirewall firewall add rule name="Podman Port 8080" dir=in action=allow protocol=TCP localport=8080
+netsh advfirewall firewall add rule name="Podman Port 3000" dir=in action=allow protocol=TCP localport=3000
+netsh advfirewall firewall add rule name="Podman Port 9000" dir=in action=allow protocol=TCP localport=9000
+
+echo Done. Ports 8080, 3000, and 9000 are now forwarded to %VM_IP%.
+pause
+
+
+'''
+
 
 
 🧠 Notes
