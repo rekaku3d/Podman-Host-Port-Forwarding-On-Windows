@@ -1,5 +1,5 @@
-# Podman-Host-Port-Forwarding-On-Windows
-Podman Host Port Forwarding or Expose On Windows Troubleshoot
+# Podman-bind-Host-Port-Forwarding-On-Windows
+Podman Bind Host Port Forwarding or Expose On Windows Troubleshoot
 
 Troubleshooting: Exposing Podman Container to LAN on Windows (WSL2)
 If you're running Podman on Windows using WSL2 and your container is not accessible via your local network IP (e.g., http://192.168.x.x:8000), follow this guide to forward traffic from your Windows host to the container inside WSL2.
